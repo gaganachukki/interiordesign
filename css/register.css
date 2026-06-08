@@ -1,0 +1,21 @@
+/* css/register.css */
+/* Builds upon login.css */
+
+.register-card {
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.form-row {
+    display: flex;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+    }
+}

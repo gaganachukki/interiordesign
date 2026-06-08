@@ -1,0 +1,151 @@
+/* css/services.css */
+
+.services-detailed {
+    margin-top: clamp(2rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 8vw, 6rem);
+}
+
+.service-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+.service-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.service-row-img {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    min-width: 0;
+}
+
+.service-row-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-row-img:hover img {
+    transform: scale(1.05);
+}
+
+.service-row-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin-top: clamp(1rem, 3vw, 2rem);
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: var(--text-light);
+}
+
+.service-features svg {
+    color: var(--primary-color);
+}
+
+/* Packages Section */
+.packages-section {
+    margin-top: clamp(4rem, 10vw, 8rem);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.package-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.package-card.premium {
+    background: rgba(200, 169, 126, 0.05);
+    border-color: var(--primary-color);
+}
+
+.package-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.package-card h3 {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    margin-bottom: 1rem;
+}
+
+.package-price {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.package-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    margin-bottom: 1.5rem;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.package-card ul li {
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+}
+
+.package-card a {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .service-row, .service-row.reverse {
+        flex-direction: column;
+    }
+    
+    .service-row-img {
+        width: 100%;
+    }
+}
