@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Hide preloader after 3 seconds and start hero animations
+        // Hide preloader after 2 seconds and start hero animations
         setTimeout(() => {
             preloader.classList.add('hidden');
             
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pageHeroContent) {
                 pageHeroContent.classList.add('animate-hero');
             }
-        }, 3000);
+        }, 2000);
     }
 
     // Navbar scroll effect
@@ -146,6 +146,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             });
+        });
+    }
+
+    // ========================
+    // Contact Form Submission
+    // ========================
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Check if all required fields are filled
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (name && email && message) {
+                // Redirect to 404 page if form is filled
+                window.location.href = '404.html';
+            } else {
+                // Optionally show error message if fields are empty
+                alert('Please fill in all required fields.');
+            }
         });
     }
 
