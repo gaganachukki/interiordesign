@@ -116,6 +116,49 @@
     animation: floatShape 10s ease-in-out infinite alternate;
 }
 
+@media (max-width: 768px) {
+    .shape-1 {
+        width: 150px;
+        height: 150px;
+        left: 5%;
+    }
+    
+    .shape-2 {
+        width: 250px;
+        height: 250px;
+        bottom: -5%;
+        right: -2%;
+    }
+    
+    .shape-3 {
+        width: 80px;
+        height: 80px;
+        right: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .shape-1 {
+        width: 100px;
+        height: 100px;
+        top: 25%;
+    }
+    
+    .shape-2 {
+        width: 150px;
+        height: 150px;
+        bottom: 0%;
+        right: 0%;
+    }
+    
+    .shape-3 {
+        width: 60px;
+        height: 60px;
+        top: 50%;
+        right: 5%;
+    }
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }

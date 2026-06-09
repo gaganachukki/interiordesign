@@ -1,36 +1,56 @@
-/* css/design.css */
+/* ==========================================================================
+   css/design.css - Core Utilities & Global Overrides
+   ========================================================================== */
 .text-center {
     text-align: center;
 }
 
-/* Filters */
+.mb-5 {
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.bg-alt {
+    background-color: rgba(255, 255, 255, 0.03); /* Clean section breakdown */
+}
+
+/* ==========================================================================
+   Portfolio Filtering Section
+   ========================================================================== */
 .portfolio-filters {
     display: flex;
     justify-content: center;
     gap: clamp(0.5rem, 1.5vw, 1rem);
     margin-bottom: clamp(1.5rem, 4vw, 3rem);
+    margin-top: clamp(1rem, 2vw, 1.5rem);
     flex-wrap: wrap;
 }
 
 .filter-btn {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-light);
+    color: var(--text-light, #ccc);
     padding: clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
     border-radius: 50px;
     cursor: pointer;
-    font-family: var(--font-body);
+    font-family: var(--font-body), sans-serif;
     font-size: clamp(0.85rem, 1vw, 0.95rem);
     transition: all 0.3s ease;
 }
 
 .filter-btn.active, .filter-btn:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
-    color: #fff;
+    background: var(--primary-color, #c5a880);
+    border-color: var(--primary-color, #c5a880);
+    color: #111;
 }
 
-/* Masonry Layout */
+/* Hover glow helper class */
+.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(220, 180, 130, 0.3);
+}
+
+/* ==========================================================================
+   Portfolio Masonry Grid Layout
+   ========================================================================== */
 .portfolio-masonry {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
@@ -44,10 +64,10 @@
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Different sizes for masonry feel */
+/* Different sizes for grid-row mapping */
 .masonry-large {
     grid-row: span 2;
 }
@@ -61,9 +81,9 @@
     aspect-ratio: 16/9;
 }
 
-/* Filtering classes */
+/* Hidden state trigger for Filtering Scripts */
 .portfolio-item.hidden {
-    display: none;
+    display: none !important;
     opacity: 0;
     transform: scale(0.9);
 }
@@ -81,27 +101,27 @@
     left: 0;
     width: 100%;
     padding: clamp(1rem, 2.5vw, 2rem);
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
     color: #fff;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-overlay h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), serif;
     font-size: clamp(1.2rem, 2vw, 1.8rem);
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    color: var(--primary-color, #c5a880);
 }
 
 .portfolio-overlay p {
     font-size: clamp(0.85rem, 1vw, 1rem);
-    color: var(--text-light);
+    color: var(--text-light, #ccc);
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -109,18 +129,332 @@
     transform: translateY(0);
 }
 
+/* ==========================================================================
+   Featured Project Spotlight Section
+   ========================================================================== */
+.featured-spotlight {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.featured-spotlight-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.featured-spotlight-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.featured-spotlight-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.featured-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(197, 168, 128, 0.15);
+    border: 1px solid var(--primary-color, #c5a880);
+    color: var(--primary-color, #c5a880);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.featured-spotlight-content .section-title {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.featured-spotlight-content p {
+    color: var(--text-light, #ccc);
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.featured-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .featured-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+.featured-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.detail-value {
+    font-family: var(--font-body), sans-serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+}
+
+/* ==========================================================================
+   Design By Numbers (Statistics Section)
+   ========================================================================== */
+.design-numbers {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.design-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.design-number-item h3 {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--primary-color, #c5a880);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.design-number-item p {
+    color: var(--text-light, #ccc);
+    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Before & After Transformations Section
+   ========================================================================== */
+.before-after-section {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.transformation-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.transformation-card {
+    position: relative;
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.transformation-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.transformation-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.transformation-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color, #c5a880);
+    background: rgba(255, 255, 255, 0.05);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Start Your Project CTA Block
+   ========================================================================== */
+.start-project-cta {
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../assets/interior_09.webp') no-repeat center/cover;
+    background-attachment: fixed;
+}
+
+.start-project-cta .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.start-project-cta .section-title {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+/* Fallback default style for primary button if index/style framework isn't globally active */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color, #c5a880);
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Scroll-Driven Animations System Framework
+   ========================================================================== */
+/* Core state setups */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    transition-property: transform, opacity;
+}
+
+/* Animation Variant Definitions */
+.fade-in {
+    transform: translateY(0);
+}
+
+.slide-up {
+    transform: translateY(40px);
+}
+
+.slide-left {
+    transform: translateX(-50px);
+}
+
+.slide-right {
+    transform: translateX(50px);
+}
+
+.scale-up {
+    transform: scale(0.92);
+}
+
+/* Intersection Observer Activators (Triggered by your JS class swap) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Clean UI Animation Step Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+
+/* ==========================================================================
+   Responsive Breakpoints & Layout Adapters (Mobile First Cleanup)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .featured-spotlight-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .portfolio-masonry {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
     }
+    
     .masonry-large, .masonry-medium, .masonry-small {
         grid-row: span 1;
         aspect-ratio: 4/3;
     }
+    
     .portfolio-overlay {
         opacity: 1;
         transform: translateY(0);
-        background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .transformation-grid {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .transformation-arrow {
+        transform: rotate(90deg); /* Flips point direction layout for linear columns */
+        margin: 0.5rem 0;
+    }
+
+    .transformation-card {
+        width: 100%;
+    }
+
+    .featured-details {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .start-project-cta {
+        background-attachment: scroll; /* Prevents performance jitters on mobile viewports */
     }
 }

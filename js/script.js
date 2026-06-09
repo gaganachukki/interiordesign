@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ========================
+    // Preloader & Hero Animation
+    // ========================
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Hide preloader after 3 seconds and start hero animations
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            
+            // Trigger hero content animations on all pages
+            const heroContent = document.querySelector('.hero-content');
+            const pageHeroContent = document.querySelector('.page-hero-content');
+            
+            if (heroContent) {
+                heroContent.classList.add('animate-hero');
+            }
+            if (pageHeroContent) {
+                pageHeroContent.classList.add('animate-hero');
+            }
+        }, 3000);
+    }
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -63,6 +85,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => observer.observe(el));
+
+    // ========================
+    // Count Animation
+    // ========================
+    const countElements = document.querySelectorAll('.count-animate');
+    const countedElements = new Set();
+
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !countedElements.has(entry.target)) {
+                countedElements.add(entry.target);
+                animateCount(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    countElements.forEach(el => countObserver.observe(el));
+
+    function animateCount(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const suffix = element.getAttribute('data-suffix') || '';
+        let current = 0;
+        const increment = Math.ceil(target / 30);
+        const speed = 50;
+
+        const counter = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(counter);
+            }
+            element.textContent = current + suffix;
+        }, speed);
+    }
 
     // ========================
     // Portfolio Filtering

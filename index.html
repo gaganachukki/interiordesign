@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="assets/logo.webp" alt="Stackly" class="preloader-logo">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <div class="hero-section">
         <div class="hero-slideshow">
             <div class="slide active" style="background-image: url('assets/interior_01.webp');"></div>
@@ -75,12 +83,20 @@
     <section class="press-section section-padding">
         <div class="container text-center">
             <p class="press-subtitle">As Featured In</p>
-            <div class="press-logos">
-                <h3>VOGUE Living</h3>
-                <h3>Architectural Digest</h3>
-                <h3>ELLE DECOR</h3>
-                <h3>Dwell</h3>
-                <h3>Wallpaper*</h3>
+            <div class="press-logos-wrapper">
+                <div class="press-logos">
+                    <h3>VOGUE Living</h3>
+                    <h3>Architectural Digest</h3>
+                    <h3>ELLE DECOR</h3>
+                    <h3>Dwell</h3>
+                    <h3>Wallpaper*</h3>
+                    <!-- Duplicated for continuous scroll -->
+                    <h3>VOGUE Living</h3>
+                    <h3>Architectural Digest</h3>
+                    <h3>ELLE DECOR</h3>
+                    <h3>Dwell</h3>
+                    <h3>Wallpaper*</h3>
+                </div>
             </div>
         </div>
     </section>
@@ -145,6 +161,39 @@
         </div>
     </section>
 
+    <!-- NEW SECTION: Signature Aesthetics -->
+    <section class="section-padding aesthetics-section">
+        <div class="container">
+            <div class="section-header text-center mb-5 animate-on-scroll slide-up">
+                <h2 class="section-title">Our Signature Aesthetics</h2>
+                <p class="section-subtitle">Distinct styles mastered through years of passionate design.</p>
+            </div>
+            <div class="aesthetics-grid">
+                <div class="aesthetic-card animate-on-scroll slide-up delay-100">
+                    <img src="assets/interior_11.webp" alt="Modern Minimalism">
+                    <div class="aesthetic-content">
+                        <h3>Modern Minimalism</h3>
+                        <p>Clean lines, uncluttered spaces, and purposeful restraint.</p>
+                    </div>
+                </div>
+                <div class="aesthetic-card animate-on-scroll slide-up delay-200">
+                    <img src="assets/interior_13.webp" alt="Classic Elegance">
+                    <div class="aesthetic-content">
+                        <h3>Classic Elegance</h3>
+                        <p>Timeless proportions, rich fabrics, and sophisticated details.</p>
+                    </div>
+                </div>
+                <div class="aesthetic-card animate-on-scroll slide-up delay-300">
+                    <img src="assets/interior_19.webp" alt="Industrial Chic">
+                    <div class="aesthetic-content">
+                        <h3>Industrial Chic</h3>
+                        <p>Raw materials, exposed architecture, and urban edge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 3. Trend Spotlight -->
     <section class="trend-spotlight">
         <div class="trend-image animate-on-scroll slide-left">
@@ -172,6 +221,30 @@
                 <div class="designer-signature">
                     <h4>Elena Rostova</h4>
                     <p>Founder & Principal Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Impact & Metrics Banner -->
+    <section class="metrics-banner section-padding">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-item animate-on-scroll scale-up delay-100">
+                    <h3 class="metric-number count-animate" data-target="150" data-suffix="+">0+</h3>
+                    <p class="metric-label">Projects Completed</p>
+                </div>
+                <div class="metric-item animate-on-scroll scale-up delay-200">
+                    <h3 class="metric-number count-animate" data-target="12" data-suffix="">0</h3>
+                    <p class="metric-label">Industry Awards</p>
+                </div>
+                <div class="metric-item animate-on-scroll scale-up delay-300">
+                    <h3 class="metric-number count-animate" data-target="10" data-suffix="+">0+</h3>
+                    <p class="metric-label">Years Experience</p>
+                </div>
+                <div class="metric-item animate-on-scroll scale-up delay-400">
+                    <h3 class="metric-number count-animate" data-target="5" data-suffix="">0</h3>
+                    <p class="metric-label">Continents Served</p>
                 </div>
             </div>
         </div>

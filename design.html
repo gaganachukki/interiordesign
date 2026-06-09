@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="css/design.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="assets/logo.webp" alt="Stackly" class="preloader-logo">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <header class="navbar scrolled">
         <a href="index.html" class="logo" style="text-decoration: none;">
             <img src="assets/logo.webp" alt="Stackly" class="site-logo">
@@ -52,9 +60,15 @@
         </div>
     </div>
 
+    <!-- Page Hero Section -->
+    <section class="page-hero-section" style="background-image: url('assets/interior_15.webp');">
+        <div class="page-hero-content">
+            <h1>Our Portfolio</h1>
+            <p>Explore a curated selection of our finest interior design projects.</p>
+        </div>
+    </section>
+
     <main class="page-container">
-        <h1 class="page-title text-center">Our Portfolio</h1>
-        <p class="page-subtitle text-center">Explore a curated selection of our finest interior design projects.</p>
         
         <div class="portfolio-filters animate-on-scroll fade-in">
             <button class="filter-btn active hover-glow" data-filter="all">All</button>
@@ -127,6 +141,89 @@
                 </div>
             </div>
         </div>
+
+        <!-- NEW: Featured Project Spotlight -->
+        <section class="featured-spotlight section-padding animate-on-scroll slide-up">
+            <div class="container featured-spotlight-container">
+                <div class="featured-spotlight-image animate-on-scroll slide-left delay-100">
+                    <img src="assets/interior_16.webp" alt="The Paramount Project">
+                </div>
+                <div class="featured-spotlight-content animate-on-scroll slide-right delay-200">
+                    <div class="featured-badge">Featured Project</div>
+                    <h2 class="section-title">The Paramount Residence</h2>
+                    <p>A 4,200 sq ft penthouse overlooking the Western Ghats, this project demanded a seamless blend of panoramic views and intimate comfort. We used floor-to-ceiling glass, cantilevered walnut shelving, and a muted earth-tone palette to let the landscape become the primary artwork.</p>
+                    <div class="featured-details">
+                        <div class="featured-detail">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value">Salem, Tamil Nadu</span>
+                        </div>
+                        <div class="featured-detail">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value">8 Months</span>
+                        </div>
+                        <div class="featured-detail">
+                            <span class="detail-label">Style</span>
+                            <span class="detail-value">Contemporary Warm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Design By Numbers -->
+        <section class="design-numbers section-padding bg-alt animate-on-scroll fade-in">
+            <div class="container text-center">
+                <h2 class="section-title mb-5">Design By Numbers</h2>
+                <div class="design-numbers-grid">
+                    <div class="design-number-item animate-on-scroll scale-up delay-100">
+                        <h3>92%</h3>
+                        <p>Client Retention Rate</p>
+                    </div>
+                    <div class="design-number-item animate-on-scroll scale-up delay-200">
+                        <h3>4.9★</h3>
+                        <p>Average Client Rating</p>
+                    </div>
+                    <div class="design-number-item animate-on-scroll scale-up delay-300">
+                        <h3>37</h3>
+                        <p>Global Vendor Partners</p>
+                    </div>
+                    <div class="design-number-item animate-on-scroll scale-up delay-400">
+                        <h3>6</h3>
+                        <p>Weeks Avg. Concept Delivery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Before & After Showcase -->
+        <section class="before-after-section section-padding animate-on-scroll slide-up">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Transformations</h2>
+                <p class="section-subtitle text-center" style="margin-bottom: 3rem;">See the dramatic difference our design thinking makes.</p>
+                <div class="transformation-grid">
+                    <div class="transformation-card animate-on-scroll slide-up delay-100">
+                        <img src="assets/k11.webp" alt="Before Transformation">
+                        <div class="transformation-label before-label">Before</div>
+                    </div>
+                    <div class="transformation-arrow animate-on-scroll scale-up delay-200">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="transformation-card animate-on-scroll slide-up delay-300">
+                        <img src="assets/k12.webp" alt="After Transformation">
+                        <div class="transformation-label after-label">After</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Start Your Project CTA -->
+        <section class="start-project-cta animate-on-scroll fade-in">
+            <div class="container text-center">
+                <h2 class="section-title">Have a Vision in Mind?</h2>
+                <p class="section-subtitle" style="margin-bottom: 2rem;">Let's bring your dream space to life. Share your ideas and we'll handle the rest.</p>
+                <a href="contact.html" class="btn-primary">Start Your Project</a>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">

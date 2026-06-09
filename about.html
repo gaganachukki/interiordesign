@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="assets/logo.webp" alt="Stackly" class="preloader-logo">
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
     <header class="navbar scrolled">
         <a href="index.html" class="logo" style="text-decoration: none;">
             <img src="assets/logo.webp" alt="Stackly" class="site-logo">
@@ -52,6 +60,14 @@
         </div>
     </div>
 
+    <!-- Page Hero Section -->
+    <section class="page-hero-section" style="background-image: url('assets/interior_19.webp');">
+        <div class="page-hero-content">
+            <h1>About Stackly</h1>
+            <p>Crafting timeless spaces that inspire and transform how people live, work, and experience the world.</p>
+        </div>
+    </section>
+
     <main class="page-container">
         <section class="about-hero">
             <div class="about-text animate-on-scroll slide-up">
@@ -63,7 +79,37 @@
                 </div>
             </div>
             <div class="about-image animate-on-scroll slide-left delay-200">
-                <img src="assets/interior_05.webp" alt="Stackly Design Studio">
+                <img src="assets/about.webp" alt="Stackly Design Studio">
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Our Evolution Timeline -->
+        <section class="timeline-section section-padding bg-alt animate-on-scroll slide-up">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Our Evolution</h2>
+                <div class="evolution-timeline">
+                    <div class="evolution-item animate-on-scroll slide-up delay-100">
+                        <div class="evolution-year">2018</div>
+                        <div class="evolution-content">
+                            <h3>The Genesis</h3>
+                            <p>Stackly was founded with a mission to redefine residential spaces with timeless elegance.</p>
+                        </div>
+                    </div>
+                    <div class="evolution-item animate-on-scroll slide-up delay-200">
+                        <div class="evolution-year">2021</div>
+                        <div class="evolution-content">
+                            <h3>Commercial Expansion</h3>
+                            <p>Opened our dedicated commercial design wing to transform modern workspaces.</p>
+                        </div>
+                    </div>
+                    <div class="evolution-item animate-on-scroll slide-up delay-300">
+                        <div class="evolution-year">2024</div>
+                        <div class="evolution-content">
+                            <h3>Global Reach</h3>
+                            <p>Successfully completed our first international flagship project in Milan.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -74,23 +120,127 @@
             </div>
         </section>
 
+        <!-- NEW SECTION: Inside The Studio -->
+        <section class="studio-section section-padding animate-on-scroll fade-in">
+            <div class="container studio-container">
+                <div class="studio-content animate-on-scroll slide-right delay-100">
+                    <h2 class="section-title">Where Magic Happens</h2>
+                    <p>Our studio is more than an office; it's a creative laboratory. With an extensive physical material library spanning sustainable woods, rare stones, and bespoke textiles, our designers have the resources to prototype and perfect every detail before it ever reaches your home.</p>
+                </div>
+                <div class="studio-image animate-on-scroll slide-left delay-200">
+                    <img src="assets/interior_24.webp" alt="Inside Stackly Studio">
+                </div>
+            </div>
+        </section>
+
         <section class="team-section animate-on-scroll fade-in">
             <h2 class="section-title text-center mb-5">Meet The Visionaries</h2>
             <div class="team-grid">
                 <div class="team-card animate-on-scroll slide-up delay-100 hover-lift">
-                    <div class="team-img placeholder-img"><span>EL</span></div>
+                    <img src="assets/ai1.webp" alt="Inside Stackly Studio">
                     <h3>Elena Rossi</h3>
                     <p>Principal Architect</p>
                 </div>
                 <div class="team-card animate-on-scroll slide-up delay-200 hover-lift">
-                    <div class="team-img placeholder-img"><span>MD</span></div>
+                    <img src="assets/ai7.webp" alt="Inside Stackly Studio">
                     <h3>Marcus Dunn</h3>
                     <p>Lead Interior Designer</p>
                 </div>
                 <div class="team-card animate-on-scroll slide-up delay-300 hover-lift">
-                    <div class="team-img placeholder-img"><span>SL</span></div>
+                    <img src="assets/ai4.webp" alt="Inside Stackly Studio">
                     <h3>Sarah Lin</h3>
                     <p>Materials Specialist</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Core Values -->
+        <section class="core-values-section section-padding animate-on-scroll fade-in">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">What Drives Us</h2>
+                <div class="core-values-grid">
+                    <div class="core-value-card animate-on-scroll slide-up delay-100">
+                        <div class="core-value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>Integrity First</h3>
+                        <p>Transparent pricing, honest timelines, and no hidden surprises. We build trust before we build spaces.</p>
+                    </div>
+                    <div class="core-value-card animate-on-scroll slide-up delay-200">
+                        <div class="core-value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
+                        <h3>Cultural Sensitivity</h3>
+                        <p>Every region has its own design dialect. We listen to local traditions and weave them into contemporary frameworks.</p>
+                    </div>
+                    <div class="core-value-card animate-on-scroll slide-up delay-300">
+                        <div class="core-value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        </div>
+                        <h3>Precision Craftsmanship</h3>
+                        <p>From millimetre-accurate joinery to perfectly aligned lighting, we obsess over the details others overlook.</p>
+                    </div>
+                    <div class="core-value-card animate-on-scroll slide-up delay-400">
+                        <div class="core-value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>Collaborative Spirit</h3>
+                        <p>Great design is never a monologue. We co-create with clients, artisans, and architects at every phase.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Awards & Recognition -->
+        <section class="awards-section section-padding bg-alt animate-on-scroll slide-up">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Awards & Recognition</h2>
+                <div class="awards-grid">
+                    <div class="award-card animate-on-scroll scale-up delay-100">
+                        <div class="award-year">2024</div>
+                        <h3>Best Residential Interior</h3>
+                        <p>Indian Design Excellence Awards</p>
+                    </div>
+                    <div class="award-card animate-on-scroll scale-up delay-200">
+                        <div class="award-year">2023</div>
+                        <h3>Sustainable Design Pioneer</h3>
+                        <p>Green Living Architecture Forum</p>
+                    </div>
+                    <div class="award-card animate-on-scroll scale-up delay-300">
+                        <div class="award-year">2022</div>
+                        <h3>Emerging Studio of the Year</h3>
+                        <p>Asia Pacific Design Awards</p>
+                    </div>
+                    <div class="award-card animate-on-scroll scale-up delay-400">
+                        <div class="award-year">2021</div>
+                        <h3>Innovation in Material Usage</h3>
+                        <p>National Interior Design Guild</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Client Testimonial -->
+        <section class="about-testimonial-section section-padding animate-on-scroll fade-in">
+            <div class="container text-center">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--primary-color)" class="quote-icon" style="opacity:0.4; margin-bottom:1.5rem;">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+                <p class="about-testimonial-quote">"Working with the Stackly team felt less like hiring designers and more like gaining creative partners. They understood our family's rhythm and translated it into a home that breathes with us."</p>
+                <p class="about-testimonial-author">&mdash; Priya & Aman Verma, Zen Residence</p>
+            </div>
+        </section>
+
+        <!-- NEW: Join Our Team CTA -->
+        <section class="join-team-section section-padding animate-on-scroll slide-up">
+            <div class="container join-team-container">
+                <div class="join-team-content">
+                    <h2 class="section-title">Join Our Creative Family</h2>
+                    <p>We're always searching for passionate minds who see spaces as canvases. Whether you're an architect, a colour theorist, or a 3D visualizer, we'd love to hear from you.</p>
+                    <a href="contact.html" class="btn-primary">View Open Positions</a>
+                </div>
+                <div class="join-team-image">
+                    <img src="assets/interior_27.webp" alt="Stackly Creative Workspace">
                 </div>
             </div>
         </section>

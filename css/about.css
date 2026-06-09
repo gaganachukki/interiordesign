@@ -1,29 +1,57 @@
-/* css/about.css */
+/* ==========================================================================
+   css/about.css - Core Section Utilities & Global Fallbacks
+   ========================================================================== */
+.text-center {
+    text-align: center;
+}
 
+.mb-5 {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section-padding {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.bg-alt {
+    background-color: rgba(255, 255, 255, 0.03); /* Unified contrast striping */
+}
+
+/* Base structural layout grid container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   About Hero Header Layout Block
+   ========================================================================== */
 .about-hero {
     display: flex;
     align-items: center;
-    gap: clamp(2rem, 4vw, 4rem);
-    margin-top: 2rem;
+    gap: clamp(2rem, 5vw, 4rem);
+    margin-top: clamp(2rem, 5vw, 4rem);
+    padding: clamp(1rem, 3vw, 2rem) 0;
 }
 
 .about-text {
-    flex: 1;
+    flex: 1.1;
     min-width: 0;
 }
 
 .about-content p {
-    color: var(--text-muted);
+    color: var(--text-muted, #999);
     line-height: 1.8;
     margin-bottom: 1.5rem;
-    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
 }
 
 .about-image {
-    flex: 1;
+    flex: 0.9;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     min-width: 0;
 }
 
@@ -31,98 +59,495 @@
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.5s ease;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .about-image:hover img {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-/* Philosophy Section */
-.philosophy-section {
-    margin: clamp(3rem, 6vw, 8rem) 0;
-    padding: clamp(2rem, 5vw, 6rem);
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 4px solid var(--primary-color);
-    border-radius: 0 16px 16px 0;
+/* ==========================================================================
+   Evolution History Vertical Timeline Section
+   ========================================================================== */
+.evolution-timeline {
+    position: relative;
+    padding-left: clamp(2rem, 5vw, 4rem);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.philosophy-content p {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    line-height: 1.8;
-    color: var(--text-muted);
-    font-style: italic;
-    font-family: var(--font-heading);
+.evolution-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+                var(--primary-color, #c5a880) 0%, 
+                rgba(197, 168, 128, 0.1) 100%);
 }
 
-/* Team Section */
-.team-section {
-    margin-top: clamp(3rem, 6vw, 6rem);
+.evolution-item {
+    position: relative;
+    padding-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-    gap: clamp(1.5rem, 3vw, 3rem);
+.evolution-item:last-child {
+    padding-bottom: 0;
 }
 
-.team-card {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: clamp(1.5rem, 2vw, 2rem);
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.team-card:hover {
-    border-color: rgba(200, 169, 126, 0.4);
-}
-
-.team-img {
-    width: clamp(100px, 15vw, 150px);
-    height: clamp(100px, 15vw, 150px);
+/* Bullet markers node on timeline path */
+.evolution-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * clamp(2rem, 5vw, 4rem));
+    top: 0.45rem;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    background: var(--bg-alt);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid transparent;
-    transition: all 0.4s ease;
+    background: var(--primary-color, #c5a880);
+    border: 3px solid #1a1a1a;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
 }
 
-.team-card:hover .team-img {
-    border-color: var(--primary-color);
-    transform: scale(1.05);
-}
-
-.placeholder-img {
-    background: linear-gradient(135deg, rgba(200, 169, 126, 0.2), rgba(200, 169, 126, 0.05));
-    color: var(--primary-color);
+.evolution-year {
+    font-family: var(--font-heading), serif;
     font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-family: var(--font-heading);
+    color: var(--primary-color, #c5a880);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1;
 }
 
-.team-card h3 {
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+.evolution-content h3 {
+    font-family: var(--font-body), sans-serif;
+    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+    font-weight: 500;
     color: #fff;
     margin-bottom: 0.5rem;
 }
 
+.evolution-content p {
+    color: var(--text-muted, #999);
+    line-height: 1.7;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+/* ==========================================================================
+   Design Studio Creative Philosophy Accent Block
+   ========================================================================== */
+.philosophy-section {
+    margin: clamp(4rem, 8vw, 7rem) auto;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 4px solid var(--primary-color, #c5a880);
+    border-radius: 0 16px 16px 0;
+    max-width: 1000px;
+}
+
+.philosophy-content p {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--text-muted, #ccc);
+    font-style: normal;
+    font-family: var(--font-body), sans-serif;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   Inside The Design Laboratory (Split Block)
+   ========================================================================== */
+.studio-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.studio-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.studio-content p {
+    color: var(--text-muted, #999);
+    line-height: 1.8;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    margin-top: 1rem;
+}
+
+.studio-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    min-width: 0;
+}
+
+.studio-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.studio-image:hover img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   The Visionaries Team Profile Showcase 
+   ========================================================================== */
+.team-section {
+    margin-top: clamp(4rem, 8vw, 6rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 2.5vw, 2.5rem) 1.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Replaced broken missing design wrapper class with dynamic image targeting */
+.team-card img {
+    width: clamp(110px, 15vw, 140px);
+    height: clamp(110px, 15vw, 140px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Interaction Hover effects */
+.team-card:hover {
+    border-color: rgba(197, 168, 128, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.team-card:hover img {
+    border-color: var(--primary-color, #c5a880);
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 12px 24px rgba(197, 168, 128, 0.2);
+}
+
+/* Interactive lift global modifier hook */
+.hover-lift:hover {
+    transform: translateY(-6px);
+}
+
+.team-card h3 {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+
 .team-card p {
-    color: var(--primary-color);
-    font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+    color: var(--primary-color, #c5a880);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Core Professional Values Block
+   ========================================================================== */
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.core-value-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.core-value-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.core-value-icon {
+    color: var(--primary-color, #c5a880);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+}
+
+.core-value-card h3 {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.core-value-card p {
+    color: var(--text-muted, #999);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Studio Awards & Industrial Recognition Section
+   ========================================================================== */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.award-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 2rem 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.award-card:hover {
+    border-color: rgba(197, 168, 128, 0.25);
+}
+
+.award-year {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--primary-color, #c5a880);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.award-card h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.award-card p {
+    color: var(--text-muted, #777);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Client Testimonial Quotation Component
+   ========================================================================== */
+.about-testimonial-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.about-testimonial-quote {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    color: #fff;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    font-weight: 400;
+}
+
+.about-testimonial-author {
+    color: var(--primary-color, #c5a880);
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Join Our Team CTA Architecture Layout split 
+   ========================================================================== */
+.join-team-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+
+.join-team-content .section-title {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.join-team-content p {
+    color: var(--text-muted, #999);
+    line-height: 1.7;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    margin-bottom: 2rem;
+}
+
+.join-team-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.join-team-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Global Navigation Framework Components fallback styling sync */
+.btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: var(--primary-color, #c5a880);
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Scroll-Driven Structural Animations Engine Classes
+   ========================================================================== */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-duration: 0.85s;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    transition-property: transform, opacity;
+}
+
+/* Structural States directional modifiers config */
+.fade-in { transform: translateY(0); }
+.slide-up { transform: translateY(40px); }
+.slide-left { transform: translateX(-40px); }
+.slide-right { transform: translateX(40px); }
+.scale-up { transform: scale(0.93); }
+
+/* Intersection Activators Class configuration targeted directly by JS engine hooks */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delay Intervals */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* ==========================================================================
+   Responsive Adaptability & Desktop Down Media Viewport Breakpoints
+   ========================================================================== */
+@media (max-width: 992px) {
+    .join-team-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .join-team-image {
+        order: 2;
+    }
+    .join-team-content {
+        order: 1;
+    }
+}
+
+/* ==========================================================================
+   About Page Footer Override - Fix All Overlaps
+   ========================================================================== */
+.site-footer {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+}
+
+.footer-grid {
+    padding-bottom: 2rem;
+}
+
+.footer-bottom {
+    padding: 2rem 5%;
+    margin-top: 1.5rem;
+    gap: 2rem !important;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    flex: 1 1 auto;
+    min-width: 200px;
+}
+
+.footer-legal {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
     .about-hero {
         flex-direction: column;
+        text-align: center;
     }
     
     .about-image {
         width: 100%;
+        margin-top: 1rem;
+    }
+
+    .studio-container {
+        flex-direction: column;
+    }
+
+    .studio-image {
+        width: 100%;
+    }
+
+    .philosophy-section {
+        border-left: none;
+        border-top: 4px solid var(--primary-color, #c5a880);
+        border-radius: 0 0 12px 12px;
+        padding: 2rem 1.25rem;
+    }
+
+    .evolution-timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .evolution-item::before {
+        left: -1.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-legal {
+        justify-content: flex-start;
     }
 }

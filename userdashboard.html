@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/userdashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="dashboard-body">
 
@@ -21,23 +22,23 @@
             <button class="close-sidebar" aria-label="Close Sidebar">&times;</button>
         </div>
         <nav class="sidebar-nav">
-            <a href="userdashboard.html" class="active">
+            <a href="#" data-section="overview" class="nav-link active">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                 Overview
             </a>
-            <a href="404.html">
+            <a href="#" data-section="projects" class="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 My Projects
             </a>
-            <a href="404.html">
+            <a href="#" data-section="messages" class="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                 Messages
             </a>
-            <a href="404.html">
+            <a href="#" data-section="invoices" class="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 Invoices
             </a>
-            <a href="404.html">
+            <a href="#" data-section="settings" class="nav-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 Settings
             </a>
@@ -66,32 +67,44 @@
                     <span class="badge">2</span>
                 </div>
                 <div class="user-profile">
-                    <img src="assets/interior_10.webp" alt="User Profile" class="avatar">
-                    <span class="user-name">Sarah Jenkins</span>
+                    <div class="avatar" id="header-avatar" style="background:var(--primary-color); display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:1.2rem; border:none;">S</div>
+                    <span class="user-name" id="header-user-name">Sarah Jenkins</span>
                 </div>
             </div>
         </header>
 
         <!-- Content Area -->
         <div class="dashboard-content">
-            <!-- Welcome Banner -->
-            <div class="welcome-banner animate-on-load slide-up">
-                <div class="banner-text">
-                    <h1>Welcome back, Sarah!</h1>
-                    <p>Your Zen Residence project is currently on schedule. Review the latest design concepts below.</p>
-                </div>
-                <div class="banner-action">
-                    <button class="btn-primary" onclick="window.location.href='404.html'">View Project Details</button>
-                </div>
-            </div>
-
-            <div class="dashboard-grid">
-                <!-- Project Progress -->
-                <div class="dashboard-card project-progress-card animate-on-load slide-up delay-100">
-                    <div class="card-header">
-                        <h3>Active Project Status</h3>
-                        <span class="status-badge on-track">On Track</span>
+            <!-- Overview Section -->
+            <div id="overview" class="dashboard-section">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner animate-on-load slide-up">
+                    <div class="banner-text">
+                        <h1 id="welcome-text" class="welcome-heading">Welcome back, Sarah!</h1>
+                        <p>Your Zen Residence project is currently on schedule. Review the latest design concepts below.</p>
                     </div>
+                    <div class="banner-action">
+                        <button class="btn-primary" onclick="window.location.href='404.html'">View Project Details</button>
+                    </div>
+                </div>
+
+                <!-- Project Budget Allocation Chart -->
+                <div class="dashboard-card chart-card animate-on-load slide-up delay-400" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3>Project Budget Allocation</h3>
+                    </div>
+                    <div class="chart-container" style="position: relative; height:250px; width:100%">
+                        <canvas id="userChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Project Progress -->
+                    <div class="dashboard-card project-progress-card animate-on-load slide-up delay-100">
+                        <div class="card-header">
+                            <h3>Active Project Status</h3>
+                            <span class="status-badge on-track">On Track</span>
+                        </div>
                     <div class="project-info">
                         <h4>Zen Residence Renovation</h4>
                         <p class="phase">Current Phase: <strong>Conceptualization</strong></p>
@@ -107,77 +120,206 @@
                             <span>Styling</span>
                         </div>
                     </div>
-                </div>
+                    </div>
 
-                <!-- Quick Actions -->
-                <div class="dashboard-card quick-actions-card animate-on-load slide-up delay-200">
-                    <div class="card-header">
-                        <h3>Quick Actions</h3>
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card quick-actions-card animate-on-load slide-up delay-200">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="actions-grid">
+                            <a href="404.html" class="action-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                Message Designer
+                            </a>
+                            <a href="404.html" class="action-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.2 15c.7-1.2 1-2.5.7-3.9-.6-2-2.4-3.5-4.4-3.5h-1.2c-.7-3-3.2-5.2-6.2-5.6-3-.3-5.9 1.3-7.3 4-1.2 2.5-1 6.5.5 8.8m8.7-1.6V21"></path><path d="M12 12l3 3-3 3"></path></svg>
+                                Upload Document
+                            </a>
+                            <a href="404.html" class="action-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Schedule Meeting
+                            </a>
+                            <a href="404.html" class="action-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                Make Payment
+                            </a>
+                        </div>
                     </div>
-                    <div class="actions-grid">
-                        <a href="404.html" class="action-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                            Message Designer
-                        </a>
-                        <a href="404.html" class="action-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.2 15c.7-1.2 1-2.5.7-3.9-.6-2-2.4-3.5-4.4-3.5h-1.2c-.7-3-3.2-5.2-6.2-5.6-3-.3-5.9 1.3-7.3 4-1.2 2.5-1 6.5.5 8.8m8.7-1.6V21"></path><path d="M12 12l3 3-3 3"></path></svg>
-                            Upload Document
-                        </a>
-                        <a href="404.html" class="action-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                            Schedule Meeting
-                        </a>
-                        <a href="404.html" class="action-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            Make Payment
-                        </a>
+
+                    <!-- Recent Updates -->
+                    <div class="dashboard-card recent-updates-card animate-on-load slide-up delay-300">
+                        <div class="card-header">
+                            <h3>Recent Updates</h3>
+                        </div>
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <div class="timeline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                                <div class="timeline-content">
+                                    <h5>Mood Board Approved</h5>
+                                    <span class="time">Yesterday</span>
+                                    <p>You approved the Zen Residence living room mood board.</p>
+                                </div>
+                            </li>
+                            <li class="timeline-item">
+                                <div class="timeline-icon pending"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="timeline-content">
+                                    <h5>Review Required</h5>
+                                    <span class="time">Oct 24, 2026</span>
+                                    <p>Elena uploaded new 3D renderings for the master bedroom. Please review.</p>
+                                </div>
+                            </li>
+                            <li class="timeline-item">
+                                <div class="timeline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                                <div class="timeline-content">
+                                    <h5>Invoice Paid</h5>
+                                    <span class="time">Oct 15, 2026</span>
+                                    <p>Initial deposit for phase 2 has been received. Thank you!</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Inspiration Preview -->
+                    <div class="dashboard-card inspiration-card animate-on-load slide-up delay-400">
+                        <div class="card-header">
+                            <h3>Saved Inspirations</h3>
+                            <a href="404.html" class="view-all">View All</a>
+                        </div>
+                        <div class="inspiration-grid">
+                            <img src="assets/interior_06.webp" alt="Inspiration 1">
+                            <img src="assets/interior_07.webp" alt="Inspiration 2">
+                            <img src="assets/interior_14.webp" alt="Inspiration 3">
+                            <img src="assets/interior_20.webp" alt="Inspiration 4">
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- End Overview Section -->
+
+            <!-- My Projects Section -->
+            <div id="projects" class="dashboard-section hidden">
+                <div class="page-header animate-on-load slide-up">
+                    <h1>My Projects</h1>
+                    <p>Track and manage all your design projects</p>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card animate-on-load slide-up delay-100">
+                        <div class="card-image">
+                            <img src="assets/interior_10.webp" alt="Zen Residence">
+                            <span class="status-badge on-track">In Progress</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Zen Residence Renovation</h3>
+                            <p class="project-phase">Phase: Conceptualization</p>
+                            <div class="progress-container">
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 45%;"></div></div>
+                                <span class="progress-text">45% Complete</span>
+                            </div>
+                            <button class="btn-primary">View Details</button>
+                        </div>
+                    </div>
+                    <div class="dashboard-card animate-on-load slide-up delay-200">
+                        <div class="card-image">
+                            <img src="assets/interior_01.webp" alt="Previous Project">
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Modern Living Room Redesign</h3>
+                            <p class="project-phase">Phase: Completed</p>
+                            <div class="progress-container">
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                                <span class="progress-text">100% Complete</span>
+                            </div>
+                            <button class="btn-outline">View Gallery</button>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Recent Updates -->
-                <div class="dashboard-card recent-updates-card animate-on-load slide-up delay-300">
-                    <div class="card-header">
-                        <h3>Recent Updates</h3>
-                    </div>
-                    <ul class="timeline">
-                        <li class="timeline-item">
-                            <div class="timeline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                            <div class="timeline-content">
-                                <h5>Mood Board Approved</h5>
-                                <span class="time">Yesterday</span>
-                                <p>You approved the Zen Residence living room mood board.</p>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-icon pending"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                            <div class="timeline-content">
-                                <h5>Review Required</h5>
-                                <span class="time">Oct 24, 2026</span>
-                                <p>Elena uploaded new 3D renderings for the master bedroom. Please review.</p>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <div class="timeline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                            <div class="timeline-content">
-                                <h5>Invoice Paid</h5>
-                                <span class="time">Oct 15, 2026</span>
-                                <p>Initial deposit for phase 2 has been received. Thank you!</p>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- Messages Section -->
+            <div id="messages" class="dashboard-section hidden">
+                <div class="page-header animate-on-load slide-up">
+                    <h1>Messages</h1>
+                    <p>Communicate with your design team</p>
                 </div>
-
-                <!-- Inspiration Preview -->
-                <div class="dashboard-card inspiration-card animate-on-load slide-up delay-400">
-                    <div class="card-header">
-                        <h3>Saved Inspirations</h3>
-                        <a href="404.html" class="view-all">View All</a>
+                <div class="messages-container animate-on-load slide-up delay-100">
+                    <div class="message-item unread">
+                        <div class="message-avatar"><div class="avatar-circle">ER</div></div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h3>Elena Rodriguez</h3>
+                                <span class="message-time">Today, 10:30 AM</span>
+                            </div>
+                            <p class="message-preview">Hi Sarah! I've completed the initial mood board for your living room. Would you like to schedule a call to review it?</p>
+                            <div class="message-tags"><span class="tag">Zen Residence</span></div>
+                        </div>
                     </div>
-                    <div class="inspiration-grid">
-                        <img src="assets/interior_06.webp" alt="Inspiration 1">
-                        <img src="assets/interior_07.webp" alt="Inspiration 2">
-                        <img src="assets/interior_14.webp" alt="Inspiration 3">
-                        <img src="assets/interior_20.webp" alt="Inspiration 4">
+                    <div class="message-item unread">
+                        <div class="message-avatar"><div class="avatar-circle">MT</div></div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h3>Mark Thompson</h3>
+                                <span class="message-time">Yesterday, 2:15 PM</span>
+                            </div>
+                            <p class="message-preview">The 3D renderings for your bedroom are ready for your review. Please check your email for the link.</p>
+                            <div class="message-tags"><span class="tag">Modern Living Room</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Section -->
+            <div id="invoices" class="dashboard-section hidden">
+                <div class="page-header animate-on-load slide-up">
+                    <h1>Invoices</h1>
+                    <p>View and manage your project invoices</p>
+                </div>
+                <div class="invoices-container animate-on-load slide-up delay-100">
+                    <div class="invoice-card paid">
+                        <div class="invoice-header">
+                            <div class="invoice-info">
+                                <h3>Invoice #INV-2026-001</h3>
+                                <p class="invoice-project">Zen Residence - Phase 1</p>
+                            </div>
+                            <span class="status-badge paid">Paid</span>
+                        </div>
+                        <div class="invoice-details">
+                            <div class="detail-row"><span>Amount:</span><span class="amount">$8,750.00</span></div>
+                            <div class="detail-row"><span>Invoice Date:</span><span>Oct 15, 2026</span></div>
+                            <div class="detail-row"><span>Status:</span><span>Paid on Oct 18, 2026</span></div>
+                        </div>
+                    </div>
+                    <div class="invoice-card pending">
+                        <div class="invoice-header">
+                            <div class="invoice-info">
+                                <h3>Invoice #INV-2026-002</h3>
+                                <p class="invoice-project">Zen Residence - Phase 2</p>
+                            </div>
+                            <span class="status-badge pending">Pending</span>
+                        </div>
+                        <div class="invoice-details">
+                            <div class="detail-row"><span>Amount:</span><span class="amount">$8,750.00</span></div>
+                            <div class="detail-row"><span>Invoice Date:</span><span>Oct 29, 2026</span></div>
+                            <div class="detail-row"><span>Due Date:</span><span>Nov 05, 2026</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="dashboard-section hidden">
+                <div class="page-header animate-on-load slide-up">
+                    <h1>Account Settings</h1>
+                    <p>Manage your profile and preferences</p>
+                </div>
+                <div class="dashboard-card animate-on-load slide-up delay-100">
+                    <div class="card-header"><h3>Personal Information</h3></div>
+                    <div class="settings-form">
+                        <div class="form-group"><label>Full Name</label><input type="text" value="Sarah Jenkins"></div>
+                        <div class="form-group"><label>Email Address</label><input type="email" value="sarah.jenkins@email.com"></div>
+                        <div class="form-group"><label>Phone Number</label><input type="tel" value="+1 (555) 987-6543"></div>
+                        <button class="btn-primary">Save Changes</button>
                     </div>
                 </div>
             </div>
@@ -187,8 +329,46 @@
     <div class="sidebar-overlay"></div>
 
     <script>
+        // Dashboard Section Manager
+        function initSectionManager() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.dashboard-section');
+            
+            // Initialize: hide all sections except overview
+            sections.forEach(s => {
+                if (s.id !== 'overview') {
+                    s.classList.add('hidden');
+                } else {
+                    s.classList.remove('hidden');
+                }
+            });
+            
+            // Set first nav link as active
+            if (navLinks.length > 0) {
+                navLinks[0].classList.add('active');
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.add('hidden'));
+                    
+                    link.classList.add('active');
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.classList.remove('hidden');
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
         // Simple Dashboard JS
         document.addEventListener('DOMContentLoaded', () => {
+            initSectionManager();
             const hamburger = document.querySelector('.hamburger-dashboard');
             const closeBtn = document.querySelector('.close-sidebar');
             const sidebar = document.querySelector('.dashboard-sidebar');
@@ -208,6 +388,75 @@
                 const animatedElements = document.querySelectorAll('.animate-on-load');
                 animatedElements.forEach(el => el.classList.add('is-visible'));
             }, 100);
+
+            // Set User Name from Login Email
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                // Extract name part before @
+                let namePart = userEmail.split('@')[0];
+                // Remove numbers/special chars and capitalize
+                namePart = namePart.replace(/[^a-zA-Z]/g, '');
+                if (namePart) {
+                    namePart = namePart.charAt(0).toUpperCase() + namePart.slice(1).toLowerCase();
+                    const welcomeText = document.getElementById('welcome-text');
+                    const headerUserName = document.getElementById('header-user-name');
+                    const headerAvatar = document.getElementById('header-avatar');
+                    if (welcomeText) welcomeText.textContent = `Welcome back, ${namePart}!`;
+                    if (headerUserName) headerUserName.textContent = namePart;
+                    if (headerAvatar) headerAvatar.textContent = namePart.charAt(0).toUpperCase();
+                }
+            }
+
+            // Initialize User Dashboard Chart
+            const ctxUser = document.getElementById('userChart');
+            if(ctxUser) {
+                new Chart(ctxUser, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Design', 'Materials', 'Labor', 'Permits', 'Furniture'],
+                        datasets: [{
+                            label: 'Budget Allocation ($)',
+                            data: [5000, 15000, 10000, 2000, 8000],
+                            backgroundColor: [
+                                'rgba(200, 169, 126, 0.8)',
+                                'rgba(59, 130, 246, 0.8)',
+                                'rgba(168, 85, 247, 0.8)',
+                                'rgba(239, 68, 68, 0.8)',
+                                'rgba(34, 197, 94, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(200, 169, 126, 1)',
+                                'rgba(59, 130, 246, 1)',
+                                'rgba(168, 85, 247, 1)',
+                                'rgba(239, 68, 68, 1)',
+                                'rgba(34, 197, 94, 1)'
+                            ],
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#fff' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#a3a3a3' },
+                                grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                            },
+                            x: {
+                                ticks: { color: '#a3a3a3' },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>

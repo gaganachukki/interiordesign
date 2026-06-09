@@ -149,3 +149,22 @@
         width: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .packages-grid {
+        gap: 1.5rem;
+    }
+    
+    .package-card {
+        padding: 1.5rem;
+    }
+    
+    .package-price {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+    
+    .service-features li {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+    }
+}

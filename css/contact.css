@@ -169,3 +169,30 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .contact-layout {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .contact-form-container {
+        padding: 1.25rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    
+    .map-container {
+        height: clamp(200px, 50vw, 300px) !important;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        padding: 0.75rem 0;
+    }
+}
