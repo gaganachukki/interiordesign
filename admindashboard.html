@@ -70,13 +70,13 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="notifications">
+                <div class="notifications" onclick="window.location.href='404.html'" style="cursor: pointer;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                     <span class="badge">5</span>
                 </div>
                 <div class="user-profile">
                     <div class="avatar-admin" id="header-avatar">A</div>
-                    <span class="user-name" id="header-user-name">Admin Portal</span>
+                    <span class="user-name" id="header-user-name">Administrator</span>
                 </div>
             </div>
         </header>
@@ -86,7 +86,7 @@
             <!-- Overview Section -->
             <div id="overview" class="dashboard-section">
                 <div class="page-header animate-on-load slide-up">
-                    <h1 id="welcome-text" class="welcome-heading">Welcome back! Here's what's happening today.</h1>
+                    <h1 id="welcome-text" class="welcome-heading">Admin Dashboard - Overview</h1>
                 </div>
 
                 <div class="kpi-grid">
@@ -399,7 +399,14 @@
                     const section = document.getElementById(sectionId);
                     if (section) {
                         section.classList.remove('hidden');
-                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    
+                    if (window.innerWidth <= 768) {
+                        const sidebar = document.querySelector('.dashboard-sidebar');
+                        const overlay = document.querySelector('.sidebar-overlay');
+                        if (sidebar) sidebar.classList.remove('active');
+                        if (overlay) overlay.classList.remove('active');
                     }
                 });
             });

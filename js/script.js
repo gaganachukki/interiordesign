@@ -67,6 +67,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========================
+    // Dashboard Hamburger Menu Toggle (Mobile)
+    // ========================
+    const dashboardHamburger = document.querySelector('.hamburger-dashboard');
+    const dashboardSidebar = document.querySelector('.dashboard-sidebar');
+    const closeSidebarBtn = document.querySelector('.close-sidebar');
+
+    if (dashboardHamburger && dashboardSidebar) {
+        // Open sidebar on hamburger click
+        dashboardHamburger.addEventListener('click', () => {
+            dashboardSidebar.classList.add('active');
+            document.body.classList.add('no-scroll');
+        });
+
+        // Close sidebar on close button click
+        if (closeSidebarBtn) {
+            closeSidebarBtn.addEventListener('click', () => {
+                dashboardSidebar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+
+        // Close sidebar when a nav-link is clicked
+        const dashboardNavLinks = dashboardSidebar.querySelectorAll('.nav-link');
+        dashboardNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                dashboardSidebar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Close sidebar when logout link is clicked
+        const logoutLink = dashboardSidebar.querySelector('.logout-link');
+        if (logoutLink) {
+            logoutLink.addEventListener('click', () => {
+                dashboardSidebar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+
+        // Close sidebar on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && dashboardSidebar.classList.contains('active')) {
+                dashboardSidebar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    }
+
+    // ========================
     // Scroll Animations
     // ========================
     const observerOptions = {

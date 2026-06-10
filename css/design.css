@@ -55,6 +55,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     grid-auto-rows: clamp(150px, 20vw, 250px);
+    grid-auto-flow: dense;
     gap: clamp(1rem, 2vw, 1.5rem);
     margin-top: clamp(1rem, 3vw, 2rem);
 }
@@ -441,8 +442,10 @@
     }
 
     .transformation-arrow {
-        transform: rotate(90deg); /* Flips point direction layout for linear columns */
         margin: 0.5rem 0;
+    }
+    .transformation-arrow svg {
+        transform: rotate(90deg);
     }
 
     .transformation-card {

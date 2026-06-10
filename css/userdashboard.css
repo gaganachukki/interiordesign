@@ -23,6 +23,18 @@
     transition: transform 0.3s ease;
 }
 
+.client-badge {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a0a0a0;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .sidebar-header {
     padding: 1.5rem;
     display: flex;
@@ -613,16 +625,23 @@
         flex-direction: column;
     }
     
-    .dashboard-main {
+    .dashboard-header {
+        padding: 0 1rem;
+    }
+    
+    .dashboard-content {
         padding: 1rem;
     }
     
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    .dashboard-grid,
+    .invoices-container,
+    .actions-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
     
-    .dashboard-card {
-        padding: 1.25rem;
+    .dashboard-card,
+    .invoice-card {
+        padding: 1rem;
     }
     
     .card-title {
@@ -642,6 +661,10 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
 }
 
 .sidebar-overlay.active {
@@ -765,6 +788,8 @@
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 8px;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .invoice-header {
@@ -772,6 +797,8 @@
     justify-content: space-between;
     align-items: start;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .invoice-info h3 {
@@ -796,6 +823,8 @@
     justify-content: space-between;
     font-size: 0.85rem;
     color: var(--text-light);
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .amount {

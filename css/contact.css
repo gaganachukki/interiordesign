@@ -87,6 +87,17 @@
     transform: translateY(-2px);
 }
 
+/* Fix browser autofill styling */
+.form-group input:-webkit-autofill,
+.form-group select:-webkit-autofill,
+.form-group textarea:-webkit-autofill,
+.form-group input:-webkit-autofill:hover, 
+.form-group input:-webkit-autofill:focus, 
+.form-group input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}
+
 .w-100 {
     width: 100%;
 }
